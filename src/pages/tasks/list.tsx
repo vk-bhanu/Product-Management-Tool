@@ -132,7 +132,8 @@ const List = ({ children }: React.PropsWithChildren) => {
            {taskStages.unassignedStage.map((task) =>(
             <KanbanItem key={task.id} id={task.id} data={{ ...task, stageId: 'unassigned' }} >
               <ProjectCardMemo
-               updatedAt={''} {...task}
+              {...task}
+               updatedAt={''} 
                dueDate={task.dueDate || undefined}              />
             </KanbanItem>
            ))}
@@ -154,7 +155,7 @@ const List = ({ children }: React.PropsWithChildren) => {
             >
               {!isLoading && column.tasks.map((task) => (
                 <KanbanItem key={task.id} id={task.id} data={task}>
-                  <ProjectCardMemo updatedAt={''} {...task} dueDate={task.dueDate || undefined} />
+                  <ProjectCardMemo {...task} updatedAt={''}  dueDate={task.dueDate || undefined} />
                 </KanbanItem>
               ))}
 
